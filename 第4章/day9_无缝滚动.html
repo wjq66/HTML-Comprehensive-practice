@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0px;
+				margin: 0px;
+			}
+			#box{
+				width: 510px;
+				height: 340px;
+				margin:150px auto;
+				overflow: hidden;
+				position: relative;
+			}
+			#box ul{
+				width: 500%;
+				position: absolute;
+				left: 0px;
+			}
+			#box ul li{
+				float: left;
+				list-style: none;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var box = document.querySelector("#box");
+				var ul = box.children[0];
+				var count = 0;
+				var time = null;
+				time= setInterval(timer,1);
+				function timer(){
+					count--;
+					count < -1550 ? count = 0 : count;
+					ul.style.left=count+"px";
+				}
+				
+				box.addEventListener("mouseover",function(){
+					clearInterval(time);
+				});
+				box.addEventListener("mouseout",function(){
+					time = setInterval(timer,2);  // 开启定时器
+				})
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<ul>
+				<li><img src="img/2005.jpg" alt="" /></li>
+				<li><img src="img/2007.jpg" alt="" /></li>
+				<li><img src="img/2009.jpg" alt="" /></li>
+				<li><img src="img/2005.jpg" alt="" /></li>
+				<li><img src="img/2007.jpg" alt="" /></li>
+			</ul>
+		</div>
+	</body>
+</html>

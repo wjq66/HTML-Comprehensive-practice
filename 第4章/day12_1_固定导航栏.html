@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body,div{
+				padding: 0px;
+				margin: 0px;
+			}
+			#box{
+				height: 3000px;
+				width: 70%;
+				margin: auto;
+				background: #ffc;
+			}
+			#top{
+				height: 200px;
+				width: 100%;
+				background: #CCFFCC;
+			}
+			.nav{
+				height: 50px;
+				width: 100%;
+				background: #fcf;
+			}
+			.fix{
+				position: fixed;
+				width: 70%;
+				top: 0;
+				left: 15%;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div id="top"></div>
+			<div id="nav" class="nav">我是nav</div>
+		</div>
+	</body>
+	
+	<script type="text/javascript">
+		var nav = document.getElementById("nav");
+		var navTop = nav.offsetTop;   
+		window.onscroll = function(){
+			var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+			if(scrollTop >= navTop){
+				console.log("111");
+				nav.classList.add("fix");
+			}
+			else{
+				nav.classList.remove("fix");
+			}
+		}
+	</script>
+</html>

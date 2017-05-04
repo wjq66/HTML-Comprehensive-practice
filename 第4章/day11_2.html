@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#img {
+				width: 88px;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<img id="img" src="img/img.jpg" alt="" />
+	</body>
+
+	<script>
+		var image = document.getElementById("img");
+		var leaderX = 0,
+			leaderY = 0,
+			targetX = 0,
+			targetY = 0;
+			document.addEventListener("mousemove",function(event){
+				var event = event || window.event;
+			targetX = event.clientX - image.offsetWidth / 2;
+			targetY = event.clientY - image.offsetHeight / 2;
+			})
+	
+		setInterval(function() {
+			/*/10是为了有一个渐渐过度的效果*/
+			leaderX = leaderX + (targetX - leaderX) / 10;	
+			leaderY = leaderY + (targetY - leaderY) / 10;
+			image.style.left = leaderX + "px";
+			image.style.top = leaderY + "px";
+		}, 10);
+	</script>
+
+</html>

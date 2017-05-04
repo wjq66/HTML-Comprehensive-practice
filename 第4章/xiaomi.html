@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 512px;
+				height: 400px;
+				overflow: hidden;
+				margin:100px  auto;
+				position: relative;
+			}
+			#bg{
+				position: absolute;
+				top: 0px;
+				left: 0px;
+			}
+			#top{
+				width: 512px;
+				height: 200px;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+			}
+			#buttom{
+				width: 512px;
+				height: 200px;
+				position: absolute;
+				top: 200px;
+				left: 0px;
+			}
+		</style>
+		
+		<script>
+			window.onload = function(){
+				 function $(id) { return document.getElementById(id);}
+				var count=0;
+				var time = null;
+				$("top").addEventListener("mouseover",function(){
+					clearInterval(time);
+					time = setInterval(function(){
+						count-=3;
+						count >= -1070 ? $("bg").style.top = count+ "px" :  clearInterval(time);
+					},30);
+	
+				})
+				$("buttom").addEventListener("mouseover",function(){
+					clearInterval(time);
+					time = setInterval(function(){
+						count+=3;
+						count  <0 ? $("bg").style.top = count+ "px" :  clearInterval(time);
+					},50);
+				})
+				$("top").parentNode.addEventListener("mouseleave",function(){
+					clearInterval(time);
+				})
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<img id="bg" src="img/mi.png" alt="" />
+			<span id="top"></span>
+			<span id="buttom"></span>
+		</div>
+	</body>
+</html>

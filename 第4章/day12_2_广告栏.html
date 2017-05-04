@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body,div{
+				margin: 0;
+				padding: 0;
+			}
+			#log{
+				width: 10%;
+				height: 300px;
+				background: #FFCCFF;
+				position: absolute;
+				top: 100px;
+				left: 0;
+			}
+			#box{
+				width: 60%;
+				margin: auto;
+				height: 3000px;
+				background: #CCFFff;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="log"></div>
+		<div id="box"></div>
+	</body>
+	
+	<script type="text/javascript">
+		var pic = document.getElementById("log");
+		var Top = pic.offsetTop;
+		var leader = 0;
+		var target = 0;
+		var timer = null;
+		window.onscroll = function(){
+			var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+			target = scrollTop + Top;
+			clearInterval(timer);
+			
+			/*leader的作用，缓慢的移动广告，等到leader = target时移动停止，可以把定时器的时间设置为1000测试*/
+			timer = setInterval(function(){
+				leader = leader + (target - leader)/10;
+				
+				log.style.top = leader + "px";
+			},30);
+		}
+	</script>
+</html>

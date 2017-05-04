@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				/*var btns = document.getElementById("top").getElementsByTagName("button");
+				var inputs = document.getElementById("buttom").getElementsByTagName("input");
+				
+				btns[0].onclick = function(){
+					for (var i=0;i<inputs.length;i++) {
+						inputs[i].checked = true;
+					}
+				}
+				btns[1].onclick = function(){
+					for(var i=0;i<inputs.length;i++){
+						inputs[i].checked = false;
+					}
+				}
+				btns[2].onclick = function(){
+					for(var i=0;i<inputs.length;i++){
+						if(inputs[i].checked == true){
+							inputs[i].checked = false;
+						}
+						else{
+							inputs[i].checked = true;
+						}
+					}
+				}*/
+				var btns = document.getElementById("top").getElementsByTagName("button");
+				var inputs = document.getElementById("buttom").getElementsByTagName("input");
+				function fn(flag){
+					for(var i=0;i<inputs.length;i++){
+						inputs[i].checked = flag;
+					}
+				}
+				btns[0].onclick = function(){
+					fn(true);
+				}
+				btns[1].onclick = function(){
+					fn(false);
+				}
+				btns[2].onclick = function(){
+					for(var i = 0;i<inputs.length;i++){
+						inputs[i].checked == true ? inputs[i].checked = false : inputs[i].checked = true;
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="top">
+			<button>全选</button>
+			<button>取消</button>
+			<button>fanxuan </button>
+		</div>
+		<div id="buttom">
+			<ul>
+				<li>选项:<input type="checkbox" /></li>
+				<li>选项:<input type="checkbox"  /></li>
+				<li>选项:<input type="checkbox"  /></li>
+				<li>选项:<input type="checkbox" /></li>
+				<li>选项:<input type="checkbox"  /></li>
+				<li>选项:<input type="checkbox" /></li>
+				<li>选项:<input type="checkbox"  /></li>
+			</ul>
+		</div>
+	</body>
+</html>

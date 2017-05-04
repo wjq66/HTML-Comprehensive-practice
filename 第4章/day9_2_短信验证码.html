@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text">
+		<button type="button">发送短信</button>
+		
+		<script>
+			(function(){
+				var btn = document.querySelector("button");
+				var count = 5;
+				btn.addEventListener("click",function(){
+					time = setInterval(a,1000);
+					this.disabled = true;
+					
+					function a(){
+						count--;
+						if(count > 0){
+							btn.innerHTML = '还剩下'+count+'秒';
+						}else{
+							btn.disabled = false;
+							btn.innerHTML = "重新发送短信";
+							clearInterval(time);
+							count = 5;
+						}
+					}
+					
+				})
+				
+			})()
+		</script>
+	</body>
+</html>

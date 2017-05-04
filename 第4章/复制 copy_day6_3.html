@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.buttom div{
+				display:none;
+				width: 100px;
+				height: 100px;
+				background: #AFEEEE;
+			}
+			.button{
+				background: #FFC0CB;
+			}
+			.buttom .show{
+				display: block;
+			}
+		</style>
+		<script>
+			window.onload = function(){
+				var btn = document.getElementsByTagName("button");
+				var divs = document.getElementById("divs").getElementsByTagName("div");
+				for(var i = 0;i<btn.length;i++){
+					btn[i].index = i;
+					btn[i].onclick = function(){
+						for(var j=0;j<btn.length;j++){
+							btn[j].className = "";
+							divs[j].className="";
+						}
+						this.className="button";
+						divs[this.index].className = "show";
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<div class="top">
+				<button class="button">第一个</button>
+				<button>第二个</button>
+				<button>第三个</button>
+				<button>第四个</button>
+			</div>
+			<div class="buttom" id="divs">
+				<div class="show">1</div>
+				<div>2</div>
+				<div>3</div>
+				<div>4</div>
+			</div>
+		</div>
+	</body>
+</html>

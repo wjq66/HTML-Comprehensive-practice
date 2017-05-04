@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.button{
+				background: pink;
+			}
+		</style>
+		<script>
+			window.onload = function(){
+				var btn = document.getElementsByTagName("button");
+				for(var j=0;j<btn.length;j++){
+					btn[j].onclick = function(){
+					for(var i=0;i<btn.length;i++){
+						btn[i].className = " ";
+					}
+					this.className ="button";
+				}
+				}
+				
+			}
+		</script>
+	</head>
+	<body>
+		<button>点击</button>
+		<button>点击</button>
+		<button>点击</button>
+		<button>点击</button>
+		<button>点击</button>
+	</body>
+</html>

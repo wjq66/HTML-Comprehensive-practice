@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: paleturquoise;
+				display: none;
+				margin: 10px;
+			}
+		</style>
+		<script>
+			function fn(demo){
+				var demo =  document.getElementById(demo);
+				demo.style.display = 'block';
+			}
+		</script>
+	</head>
+	<body>
+		<button onclick = "fn('demo1')">1</button>
+		<button onclick = "fn('demo2')">2</button>
+		<button onclick = "fn('demo3')">3</button>
+		<button  onclick = "fn('demo4')">4</button>
+		<div id="demo1">1</div>
+		<div id="demo2">2</div>
+		<div id="demo3">3</div>
+		<div id="demo4">4</div>
+	</body>
+</html>

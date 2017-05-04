@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function(){
+				function $(id){document.getElementById(id);}
+				
+				$("jisuan").onclick = function(){
+					$("all").value = $("year").value * $("money").value;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div>
+			工龄:<input id="year" type="text" value="0" /><br>
+			工资:<input id="money" type="text" value="0" /><br>
+			<br>
+			<button type="button" id="jisuan">计算</button><br>
+			调整过后的工资:<input id="all" type="text" />
+		</div>
+	</body>
+</html>

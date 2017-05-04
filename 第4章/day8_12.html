@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>倒计时</title>
+		<style type="text/css">
+			#p{
+				text-align: center;
+				color: red;
+				font-size: 30px;
+			}
+		</style>
+		<script>
+			window.onload = function(){
+				var p = document.getElementById("p");
+				
+				var endDate = new Date("2017/05/01 00:00:00");
+				setInterval(time,1000);
+				function time(){
+					var date = new Date();
+					var endTime = endDate.getTime();
+					var nowTime = date.getTime();
+					var cha = endTime - nowTime;
+					var miao = parseInt(cha/1000);
+					var day = parseInt(miao/3600/24);
+					var hour = parseInt(miao/3600%24);
+					var second = parseInt(miao/60 %60);
+					var time =parseInt(miao%60);
+					day<10 ? day="0"+day : day;
+					hour<10 ? hour="0"+hour : hour;
+					second<10 ? second="0"+second : second;
+					time<10 ? time="0"+time : time;
+					p.innerHTML = "倒计时："+day+"天"+hour+"小时"+second+"分"+time+"秒";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="p"></div>
+	</body>
+</html>

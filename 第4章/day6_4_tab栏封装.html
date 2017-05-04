@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.buttom li{
+				width: 100px;
+				height: 100px;
+				background: #AFEEEE;
+				display:none;
+			}
+			.purple{
+				background: #FFC0CB;
+			}
+			.buttom .show{
+				display: block;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				function tab(ID){
+					var target = document.getElementById(ID);
+					
+					var btns = target.getElementsByTagName("button");
+					var divs = target.getElementsByTagName("li");
+					alert(divs.length);
+					for(var i = 0; i<btns.length;i++){
+						btns[i].index = i;
+						btns[i].onmouseover= function(){
+							for(var j = 0;j<btns.length;j++){
+								btns[j].className = "";
+								divs[j].className = "";
+							}
+							this.className = "purple";
+							divs[this.index].className = "show";
+						}
+					}
+				}
+				tab("box1");
+				tab("box2");
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box1">
+			<div class="top">
+				<button class="purple">第一个</button>
+				<button>第二个</button>
+				<button>第三个</button>
+				<button>第四个</button>
+			</div>
+			<div class="buttom" id="one">
+				<ul>
+					<li class="show">1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+				</ul>
+			</div>
+		</div>
+		<div id="box2">
+			<div class="top">
+				<button class="purple">第一个</button>
+				<button>第二个</button>
+				<button>第三个</button>
+				<button>第四个</button>
+			</div>
+			<div class="buttom" id="one">
+				<ul>
+					<li class="show">1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

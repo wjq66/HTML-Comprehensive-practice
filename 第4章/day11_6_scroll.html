@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>scroll</title>
+		<style type="text/css">
+			body{
+				height: 3000px;
+			}
+		</style>
+	</head>
+	<body>
+	</body>
+	
+	<script type="text/javascript">
+		/*封装自己的scrolltop*/
+		function scroll() {
+	        if(window.pageYOffset != null)  //  ie9+ 和其他浏览器
+	        {
+	            return {
+	                left: window.pageXOffset,
+	                top: window.pageYOffset
+	            }
+	        }
+	        else if(document.compatMode == "CSS1Compat")  // 声明的了 DTD
+	          // 检测是不是怪异模式的浏览器 -- 就是没有 声明<!DOCTYPE html>
+	        {
+	            return {
+	                left: document.documentElement.scrollLeft,
+	                top: document.documentElement.scrollTop
+	            }
+	        }
+	        return { //  剩下的肯定是怪异模式的
+	            left: document.body.scrollLeft,
+	            top: document.body.scrollTop
+	        }
+	    }
+			
+		
+		window.onscroll = function(){
+			/*兼容性写法*/
+			/*var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+			document.title = scrollTop;*/
+			
+			
+			document.title = scroll().top;
+		}
+	</script>
+</html>

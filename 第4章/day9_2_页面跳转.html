@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div></div>
+		<script>
+			(function(){
+				var div = document.querySelector("div");
+				var count = 5;
+				setTimeout(a,1000);/*1000毫秒之后执行函数*/
+				function a(){
+				/*	div.innerHTML ="<a href='www.baidu.com'>本页面将在"+count+"秒后跳转</a>";*/
+					div.innerHTML = "<a href='http://www.baidu.com'>本页面将在第"+count+"秒钟之后跳转页面</a>";
+					count --;
+					if(count<=0){
+						window.location.href="http://www.baidu.com";
+					}
+					else{
+						setTimeout(a,1000);	/*回调函数*/
+					}
+					
+				}
+			})()
+		</script>
+	</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body {
+            	width: 2000px;
+	        }
+	       .top{
+	           position: fixed;
+	           right:50px;
+	           bottom:100px;
+	           display: none;
+	           cursor: pointer;
+	           transition: all 3s; 
+	       }
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var gotop = document.getElementById("gotop");
+				var leader=0,timer = null,target = 0;
+				window.onscroll = function(){
+					var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+					if(scrollTop > 0){
+						gotop.style.display = "block";
+					}else{
+						gotop.style.display = "none";
+					}
+					leader = scrollTop;
+				}
+				/*点击的时候缓慢回到顶上*/
+				gotop.onclick = function(){
+					timer = setInterval(function(){
+						target = 0;
+						leader = leader + (target - leader)/10;
+						window.scrollTo(0,leader);
+						if(leader == target){
+							clearInterval(timer);
+						}
+					},20);
+					
+					
+					
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="gotop" class="top">
+		    <img src="img/Top.jpg" alt=""/>
+		</div>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+	</body>
+</html>

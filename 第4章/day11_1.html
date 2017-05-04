@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+	</head>
+	<body>
+		
+	</body>
+	
+	<script>
+		/*光标相对于网页的位置*/
+		/*区别：
+		 	clientX clientY 当前窗口的左上角为基准点，类似固定定位
+		 	pageX，pageY（低版本浏览器不支持，）以当前文档的左上角为基准点，类似绝对定位
+		 	screenX screenY 当前屏幕的左上角（可视区域）为基准点
+		 	offsetLeft:Html元素相对于自己的offsetParent元素的位置(的距离)
+		 * * */
+		document.onclick = function(event){/*事件中才会有参数*/
+			var evt = event || window.event;/*兼容性写法，ie678只可以用window.event*/
+			console.log(evt.clientX);
+			console.log(evt.clientY);
+		}
+	</script>
+</html>

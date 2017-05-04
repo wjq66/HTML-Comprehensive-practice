@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				margin: auto;
+				width: 300px;
+				height: 7px;
+				background: #CCCCCC;
+				margin-top: 100px;
+				position: relative;
+			}
+			#drag{
+				width: 10px;
+				height: 21px;
+				position: absolute;
+				top: -7px;
+				left: 0px;
+				background: #cfc;
+				cursor: pointer;
+			}
+			#mask{
+				width: 0px;
+				height: 7px;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				background: #CCFFCC;
+			}
+			#demo{
+				position: absolute;
+				top: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div id="drag"></div>
+			<div id="mask"></div>
+			<div id="demo"></div>
+		</div>
+	</body>
+	<script>
+		var box = document.getElementById("box");
+		var drag = document.getElementById("drag");
+		var mask = document.getElementById("mask");
+		var demo = document.getElementById("demo");
+		
+		drag.onmousedown = function(event){
+			var event = event || window.event;
+			var left = event.clientX - this.offsetLeft;
+			that = this;
+			document.onmousemove = function(event){
+				var event = event || window.event;
+				that.style.left = event.clientX - left + "px";
+				var val = parseInt(that.style.left);
+				if(val < 0){
+					that.style.left = 0;
+				}else if(val>300){
+					that.style.left = "300px";
+				}
+				mask.style.width = that.style.left;
+				demo.innerHTML = "已经跑了"+parseInt(parseInt(that.style.left) / 300 * 100)+"%";
+			}
+			document.onmouseup = function(event){
+				document.onmousemove = null;
+			}
+		}
+	</script>
+	
+	<!--<script type="text/javascript">
+		var scrollBar = document.getElementById("box");
+    	var bar  = scrollBar.children[0];
+   		var mask = scrollBar.children[1];
+   		var demo = document.getElementById("demo");
+		bar.onmousedown=function(event) {
+			var event=event || window.event;
+			var left=event.clientX - this.offsetLeft;
+			var that=this;
+			document.onmousemove=function(event) {
+				var event=event || window.event;
+				that.style.left=event.clientX - left+"px";
+				var val=parseInt(that.style.left);
+				if(val < 0) {
+					that.style.left=0;
+				}
+				else if(val > 300) {
+					that.style.left="300px";
+				}
+				mask.style.width=that.style.left;
+				demo.innerHTML = "已经走了"+parseInt(parseInt(that.style.left) / 300 * 100)+"%";
+				
+				/*防止选中字体时拖拽*/
+				window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
+			}
+			document.onmouseup=function() {
+				document.onmousemove=null; // 弹起鼠标不做任何操作
+			}
+		}
+	</script>-->
+	
+</html>

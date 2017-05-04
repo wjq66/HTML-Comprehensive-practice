@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			ul,ol{
+				list-style: none;
+			}
+			.box{
+				width: 510px;
+				height: 340px;
+				margin: 100px auto;
+				overflow: hidden;
+				position: relative;
+			}
+			.circle{
+				position: absolute;
+				left: 50%;
+				margin-left: -20px;
+				bottom: 10px;
+			}
+			.circle span{
+				float: left;
+				width: 18px;
+				height: 18px;
+				border-radius: 50%;
+				background-color: pink;
+				text-align: center;
+				line-height: 18px;
+				margin-right: 10px;
+				cursor: pointer;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div class="box" id="scroll">
+			<div class="slider">
+				<ul>
+					<li><img src="img/2005.jpg" alt="" /></li>
+					<li><img src="img/2007.jpg" alt="" /></li>
+					<li><img src="img/2009.jpg" alt="" /></li>
+				</ul>
+			</div>
+			<!--<div class="circle">
+				<span>1</span>
+				<span>2</span>
+				<span>3</span>
+			</div>-->
+		</div>
+	</body>
+</html>
