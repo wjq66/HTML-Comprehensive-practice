@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body,div{
+				margin: 0;
+				padding: 0;
+			}
+			#log{
+				width: 10%;
+				height: 300px;
+				background: #FFCCFF;
+				position: absolute;
+				top: 100px;
+				left: 0;
+			}
+			#box{
+				width: 60%;
+				margin: auto;
+				height: 3000px;
+				background: #CCFFff;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="log"></div>
+		<div id="box"></div>
+	</body>
+	
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript">
+		
+		$(window).scroll(function(){
+			/*var scrolltop声明要在scroll事件里面*/
+			var scrolltop = $(document).scrollTop();
+			$("#log").animate({"top":scrolltop + 120},80);
+		})
+	</script>
+</html>

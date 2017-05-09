@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		*{ padding:0; margin:0; list-style:none;}
+		.all{ width:330px; height:30px;  no-repeat; margin:100px auto; line-height:30px; text-align:center; padding-left:10px; margin-bottom:0;}
+		.all ul li{ width:100px; height:30px; float:left; margin-right:10px; position:relative; cursor:pointer;}
+		.all ul ul{ position:absolute; left:0; top:30px; display:none;}
+		</style>
+	</head>
+	<body>
+		<div class="all" id="list">
+		<ul id="wrap">
+			<li>一级菜单
+				<ul>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+				</ul>
+			</li>
+			<li>一级菜单
+				<ul>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+				</ul>
+			</li>
+			<li>一级菜单
+				<ul>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	</body>
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript">
+	
+		$("#wrap>li").mouseenter(function(){
+			/*注意stop的参数，不加参数默认为false，第二个参数表示鼠标离开时立即执行完*/
+			$(this).children("ul").stop(false,true).slideDown();
+		});
+		$("#wrap>li").mouseleave(function(){
+			$(this).children("ul").stop(false,true).slideUp();
+		})
+	</script>
+</html>

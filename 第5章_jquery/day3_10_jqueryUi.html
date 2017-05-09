@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<link rel="stylesheet" type="text/css" href="js/jquery-ui.min.css"/>
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<script src="js/jquery-ui.min.js"></script>
+		<style type="text/css">
+			/*可以自定义样式*/
+			#tabs{
+				width: 500px;
+			}
+			#tabs ul{
+				background: #FFCCFF;
+			}
+			#accordion p{
+				background: rgba(144,144,144,0.1);
+			}
+			#accordion h3{
+				background: rgba(144,255,144,0.2);
+			}
+		</style>
+	</head>
+	<body>
+		<div id="tabs">
+			<ul>
+				<li><a href="#tab1">woshi 1</a></li>
+				<li><a href="#tab2">woshi 2</a></li>
+				<li><a href="#tab3">woshi 3</a></li>
+			</ul>
+			<div id="tab1">111</div>
+			<div id="tab2">222</div>
+			<div id="tab3">333</div>
+		</div>
+		
+		<br>
+		<div id="accordion">
+			<h3>111</h3>
+			<p>11111111111111111111111111111111111111111111</p>
+			<h3>222</h3>
+			<p>2222222222222222222222222222222222222222222222</p>
+			<h3>333</h3>
+			<p>333333333333333333333333333333333333333333333</p>
+		</div>
+	</body>
+	
+	<script type="text/javascript">
+		$("#tabs").tabs();
+		$("#accordion").accordion();
+	</script>
+</html>

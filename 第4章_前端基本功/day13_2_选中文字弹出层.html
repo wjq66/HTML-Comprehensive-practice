@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+        div {
+            width: 400px;
+            margin:50px;
+        }
+        #demo {
+            width: 100px;
+            height: auto;
+            background-color: pink;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+    </style>
+	</head>
+	<body>
+		<span id="demo"></span>
+		<div id="test">我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字</div>
+		<div id="another">
+		    我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字
+		</div>
+	</body>
+	<script type="text/javascript">
+		function $(id) {return document.getElementById(id)}
+		$("test").onmouseup = function(event){
+			var event = event || window.event;
+			var x = event.clientX;
+			var y = event.clientY;
+			var txt;
+			if(window.getSelection){
+				txt = window.getSelection().toString();
+			}else{
+				txt = document.selection.createRange().toString();
+			}
+			if(txt){
+				show(x,y,txt);	
+			}
+			
+		}
+		
+		document.onmousedown = function(event){
+			var event = event || window.event;
+			var targetId = event.target ? event.target.id : event.srcElement.id;
+			if(targetId != "demo"){
+				$("demo").style.display = "none";
+			}
+		}
+		
+		function show(x,y,txt){
+			/*鼠标up时延迟,同时解决在ie中选择文字出现的问题*/
+			setTimeout(function(){
+				$("demo").style.display = "block";
+				$("demo").style.top = y+"px";
+				$("demo").style.left = x+"px";
+				$("demo").innerHTML = txt;
+			},500)
+		}
+	</script>
+</html>

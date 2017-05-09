@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			ul li{
+				font-size: 40px;
+				list-style: none;
+				float: left;
+				color: #FFCCFF;
+				
+			}
+			li{
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="com">
+			<li>☆</li>
+			<li>☆</li>
+			<li>☆</li>
+			<li>☆</li>
+			<li>☆</li>
+		</ul>
+	</body>
+	
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript">
+		var wjx = "☆";
+		var wjx2 = "★";
+		/*第一种方法
+		 * $("#com").on("click","li",function(){
+			$(this).text(wjx2).prevAll().text(wjx2);
+			$(this).nextAll().text(wjx);
+		})*/
+		
+		/*第二种
+		 end()可以断开当前的链，回到$（this）链*/
+		/*$("#com").on("mouseover","li",function(){
+			$(this).text(wjx2).prevAll().text(wjx2).end().nextAll().text(wjx);
+		})*/
+		
+		
+		/*当鼠标滑动时可以变化，点击之后再滑动还可以变化。当鼠标离开时只显示点击时的状态*/
+		$("#com").on("mouseenter","li",function(){
+			$(this).text(wjx2).prevAll().text(wjx2).end().nextAll().text(wjx);
+			
+		}).on("click","li",function(){
+			$(this).addClass("click").siblings().removeClass("click");
+		}).on("mouseleave","li",function(){
+			$("#com li").text(wjx);
+			$(".click").text(wjx2).prevAll().text(wjx2).end().nextAll().text(wjx);
+		})
+	</script>
+</html>

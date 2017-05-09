@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>王佳倩</li>
+			<li>王佳倩</li>
+			<li>王佳倩</li>
+			<li>王佳倩</li>
+		</ul>
+	</body>
+	
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script>
+		$("li").each(function(index,el){/*el表示当前的节点元素*/
+			var text = $(el).text();/*$(el)he $(this)的效果一样*/
+			$(el).text(text + index);
+		})
+	</script>
+</html>

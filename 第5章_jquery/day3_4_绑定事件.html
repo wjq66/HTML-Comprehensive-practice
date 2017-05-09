@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button>123</button>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+		<div>
+			<h1>我是h1</h1>
+			<h1>我是h2</h1>
+		</div>
+	</body>
+	
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script>
+		/*传递多个事件*/
+		/*第一种:*/
+		/*$("button").click(function(){
+			alert("我是点击事件");
+		}).mouseover(function(){
+			alert("我是鼠标移动事件");
+		})*/
+		
+		/*第二种:点击和鼠标滑过时都会弹出alert*/
+		/*$("button").bind("click mouseover",function(){
+			alert("wo shi shijian");
+		})
+		*/
+		
+		/*第三种：比较清晰，推荐*/
+		/*$("button").bind({
+			"click":function(){
+				alert("我是点击事件");
+			},
+			"mouseover":function(){
+				alert("我是shubiao事件");
+			}
+		})*/
+		
+		/*one事件：只触发一次*/
+		/*$("button").one("click",function(){
+			alert("之弹出一次");
+		})*/
+		
+		/*delegate事件：委托事件,给ul下的所有li添加点击事件*/
+		/*$("ul").delegate("li","click",function(){
+			alert($(this).html());
+		});*/
+		
+		/*on事件，强烈推荐*/
+		/*$("ul").on("click","li",function(){
+			alert($(this).html());
+		});*/
+		
+		/*给div绑定事件，让h1：eq（1）去触发*/
+		$("div").on("click","h1:eq(1)",function(){
+			alert($(this).html());
+		});
+	</script>
+</html>

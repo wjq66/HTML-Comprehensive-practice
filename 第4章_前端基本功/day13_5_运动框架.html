@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#start{
+				width: 100px;
+				height: 50px;
+				position: absolute;
+				left: 250px;
+			}
+			#box{
+				width: 200px;
+				height: 200px;
+				background: #CCFFCC;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="box">
+			
+		</div>
+		<button id="start">开始</button>
+	</body>
+	<script src="js/运动框架.js"></script>
+	<script type="text/javascript">
+		var start = document.getElementById("start");
+		var box = document.getElementById("box");
+		start.onclick = function(){
+			animate(box,{width:100px},function(){
+				animate(box,{height:0px},function(){alert("11");});
+			})
+		}
+	</script>
+</html>

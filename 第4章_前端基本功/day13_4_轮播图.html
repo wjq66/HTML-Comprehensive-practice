@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+				list-style: none;
+				border: 0;
+			}
+			
+			.all {
+				width: 500px;
+				height: 200px;
+				padding: 7px;
+				border: 1px solid #ccc;
+				margin: 100px auto;
+				position: relative;
+			}
+			
+			.screen {
+				width: 500px;
+				height: 200px;
+				overflow: hidden;
+				position: relative;
+			}
+			
+			.screen li {
+				width: 500px;
+				height: 200px;
+				overflow: hidden;
+				float: left;
+			}
+			
+			.screen ul {
+				position: absolute;
+				left: 0;
+				top: 0px;
+				width: 3000px;
+			}
+			
+			.all ol {
+				position: absolute;
+				right: 10px;
+				bottom: 10px;
+				line-height: 20px;
+				text-align: center;
+			}
+			
+			.all ol li {
+				float: left;
+				width: 20px;
+				height: 20px;
+				background: #fff;
+				border: 1px solid #ccc;
+				margin-left: 10px;
+				cursor: pointer;
+			}
+			
+			.all ol li.current {
+				background: yellow;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="all" id='all'>
+			<div class="screen">
+				<ul id="ul">
+					<li><img src="img/1.jpg" width="500" height="200" /></li>
+					<li><img src="img/2.jpg" width="500" height="200" /></li>
+					<li><img src="img/3.jpg" width="500" height="200" /></li>
+					<li><img src="img/4.jpg" width="500" height="200" /></li>
+					<li><img src="img/5.jpg" width="500" height="200" /></li>
+				</ul>
+
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var box = document.getElementById("all");
+		var ul = document.getElementById("ul");
+		var ulLi = ul.children;
+		
+		/*复制第一张图片到最后的位置*/
+		ul.appendChild(ulLi[0].cloneNode(true));
+		/*创建ol列表*/
+		var ol = document.createElement("ol");
+		box.appendChild(ol);
+		for(var i = 0;i<ulLi.length - 1;i++){
+			var li = document.createElement("li");
+			ol.appendChild(li);
+			li.innerHTML = i+1;
+		}
+		/*默认是ol的第一张添加样式*/
+		ol.children[0].classList.add("current");
+		
+		var olLi = ol.children; 
+		for(var i = 0; i < olLi.length ;i++){
+			/*ol的索引号*/
+			olLi[i].index = i;
+			/*移到小方格上面时改变样式*/
+			olLi[i].onmouseover = function(){
+				for(var j = 0;j<olLi.length;j++){
+					olLi[j].className = "";
+				}
+				this.className = "current";
+				/*ul移动到相应的位置，根据索引号*图片的宽度 移动*/
+				animate(ul,-this.index*500);
+				/*移到对应的方块上*/
+				curcle = key = this.index;
+			}
+		}
+		
+		/*图片自动播放，key表示播放的张数，curcle表示小方块的数*/
+		var timer = null;
+		var key = 0;
+		var curcle = 0;
+		timer = setInterval(autoplay,1000);
+		function autoplay(){
+			key++;
+			/*当张数key大于图片的长度时，*/
+			/*console.log(ulLi.length);  6*/
+			if(key > ulLi.length - 1){
+				ul.style.left = "0";
+				key = 1;
+			}
+			animate(ul,-key * 500);
+			/*小方块的数超出时，从第一个开始运动，清楚所有的样式，并给当前的加上样式*/
+			curcle++;
+			if(curcle > olLi.length - 1){
+				curcle = 0;
+			}
+			for(var i = 0;i<olLi.length;i++){
+				olLi[i].className = "";
+			}
+			olLi[curcle].className = "current";
+		}
+		
+		box.onmouseover = function(){
+			clearInterval(timer);
+		}
+		box.onmouseout = function(){
+			timer = setInterval(autoplay,1000);
+		}
+		
+		
+		/*运动的封装函数*/
+		function animate(box,target){
+	    	clearInterval(box.timer);// 先清除定时器,否则会越走越快
+	    	var speed = target > box.offsetLeft ? 5 : -5;// 用来判断 应该 +  还是 -
+	    	box.timer = setInterval(function(){
+	    		
+	    		box.style.left = box.offsetLeft + speed + "px";
+	    		
+	    		var result = Math.abs(target - box.offsetLeft); // 因为他们的差值不会超过5
+	    		if(result <= 5){ // 如果差值不小于 5 说明到位置了
+	    			clearInterval(box.timer);
+	    			box.style.left = target + "px";  // 有5像素差距   我们直接跳转目标位置
+	    		}
+	    	},5);
+	    }
+	</script>
+
+</html>

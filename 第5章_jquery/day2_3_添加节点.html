@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.a{
+				background: #cff;
+			}
+		</style>
+	</head>
+	<body>
+		<button>append添加</button>
+		<button>appendTo添加</button>
+		<button>prepend添加</button>
+		<button>prependTo添加</button>
+		<button>after添加</button>
+		<button>before添加</button>
+		<button>insertBefore添加</button>
+		
+		<div>我是原来就有的</div>
+	</body>
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script>
+		$("button").eq(0).click(function(){
+			$("div").append("<p>我是append出来的</p>");
+		})
+		$("button").eq(1).click(function(){
+			$("<p>我是appendTo添加的</p>").appendTo($("div"));
+		})
+		$("button").eq(2).click(function(){
+			$("<p>我是appendTo添加的</p>").appendTo($("div"));
+			$("div").prepend("<p>我是prepend添加的</p>");
+		})
+		$("button").eq(3).click(function(){
+			$("<p>我是prependTo添加的</p>").prependTo($("div"));
+		})
+		$("button").eq(4).click(function(){
+			/*添加兄弟元素*/
+			$("div").append("<div class='a'>我是after添加的</div>");
+		})
+		$("button").eq(5).click(function(){
+			/*添加兄弟元素*/
+			$("div").before("<div class='a'>我是before添加的</div>");
+		})
+		$("button").eq(6).click(function(){
+			$("<p>我是insertBefore添加的</p>").insertBefore($("div"));
+		})
+	</script>
+</html>

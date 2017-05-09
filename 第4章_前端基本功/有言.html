@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>浮动窗口</title>
+		<style type="text/css">
+			#codefans_net {
+				position: relative;
+				width: 100px;
+				height: 100px;
+			}
+			
+			.img {
+				position: absolute;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				var x = 50,
+					y = 60;
+				var xin = true,
+					yin = true;
+				var step = 1;
+				var delay = 10;
+				var obj = document.getElementById("codefans_net");
+
+				function float() {
+					var L = T = 0;
+					var R = document.body.clientWidth - obj.offsetWidth;
+					var B = document.body.clientHeight - obj.offsetHeight;
+					obj.style.left = x + document.body.scrollLeft +"px";
+					obj.style.top = y + document.body.scrollTop + "px";
+					x = x + step * (xin ? 1 : -1);
+					if(x < L) { 
+						xin = true;
+						x = L; 
+					}
+					if(x > R) { 
+						xin = false;
+						x = R; 
+					}
+					y = y + step * (yin ? 1 : -1);
+					if(y < T) { 
+						yin = true;
+						y = T; 
+					}
+					if(y > B) { 
+						yin = false;
+						y = B; 
+					}
+					
+				}
+				var itl = setInterval(float, delay);
+				obj.onmouseover = function(){ 
+					clearInterval(itl); 
+				}
+				obj.onmouseout = function(){ 
+					itl = setInterval(float, delay); 
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="codefans_net">
+			<!-- 连接地址 -->
+			<a class="img" href="http://www.baidu.com" target="_blank">
+				<!-- 图片地址 --><img alt="" src="img/Top.jpg" border="0">
+			</a>
+
+		</div>
+	</body>
+	<html>

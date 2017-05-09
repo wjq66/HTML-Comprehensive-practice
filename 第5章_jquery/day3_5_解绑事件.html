@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button>123</button>
+	</body>
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script>
+		/*bind事件用unbind解绑，
+		 on事件用off解绑
+		 deletage用undeletage解绑
+		 只需要把事件源传进来就行*/
+		$("button").on("click",function(){
+			alert("123");
+		});
+		/*解绑*/
+		$("button").off("click");
+	</script>
+</html>

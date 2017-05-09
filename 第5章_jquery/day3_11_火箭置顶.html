@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			img{
+				width: 50px;
+				height: 50px;
+				position: fixed;
+				bottom: 0px;
+				right: 0px;
+				display:none;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<img id="image" src="../第4章_前端基本功/img/Top.jpg" />
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		<p>wo shi html</p>
+		
+	</body>
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script>
+		
+		$(window).scroll(function(){
+			if($(window).scrollTop() > 0){
+				$("#image").show();
+			}
+			else{
+				$("#image").hide();
+			}
+		})
+		
+		$("#image").on("click",function(){
+			$(window).scrollTop(0);
+		})
+	</script>
+</html>
