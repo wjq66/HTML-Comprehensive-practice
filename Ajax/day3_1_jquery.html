@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">123</button>
+	</body>
+	
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#btn").click(function(){
+				$.ajax({
+					url:"json/01data.json",
+					dataType:"json",
+					type:"get",
+					success:function(data){
+						alert(data.employees[0].lastNme);
+					},error:function(e){
+						alert(0);
+					}
+				})
+			})
+		})
+	</script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">12</button>
+	</body>
+	 
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript">
+		/*$("#btn").click(function(){
+			$.ajax({
+				url:"php/03data.php",
+				dataType:"script",
+				type:"get",
+				success:function(data){
+					eval(data);
+				},
+				error:function(e){
+					alert("0");
+				}
+			})
+		})*/
+		$("#btn").click(function(){
+			$.ajax({
+				url:"json/01data.json",
+				dataType:"json",
+					type:"get",
+				success:function(data){
+					var div = document.createElement("div");
+					$(div).appendTo($("body"));
+					$(div).css("background","#cfc");
+					$(div).text(data.firstName);
+				}
+			});
+		})
+	</script>
+</html>
