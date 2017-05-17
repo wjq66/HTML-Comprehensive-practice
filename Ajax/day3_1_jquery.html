@@ -17,7 +17,13 @@
 					dataType:"json",
 					type:"get",
 					success:function(data){
-						alert(data.employees[0].lastNme);
+						/**/
+						for(var da in data){
+							alert(data[da].firstName);
+						}
+						/*$.each(data, function(index,obj) {
+							alert(obj.firstName);
+						});*/
 					},error:function(e){
 						alert(0);
 					}

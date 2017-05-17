@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">123</button>
+	</body>
+	
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript">
+		$("#btn").click(function(){
+			$.ajax({
+					url:"https://api.douban.com/v2/book/1220562",
+					dataType:"json",
+					type:"get",
+					success:function(data){
+						var txt = "";
+						var table1 = document.createElement("table");
+						$(table1).insertAfter($("#btn"));
+						/*for(var da in data){
+							txt = txt+
+								"<tr>"+
+									"<td>"+data[da].id+ "</td>"+
+									"<td>"+data[da].name+ "</td>"+
+									"<td>"+data[da].age+ "</td>"+
+								"</tr>"
+						}*/
+						txt = "<p>"+data.id+"</p>"
+						console.log(txt);
+						alert(txt);
+//						$("table").innerHTML = txt;
+						table1.innerHTML = txt;
+						/*$.each(data, function(index,obj) {
+							alert(obj.firstName);
+						});*/
+					},error:function(e){
+						alert(0);
+					}
+				})
+			
+		})  
+	</script> 
+</html>
