@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1>点击按钮发送ajax请求</h1>
+	<input type="button"  value="点击发送ajax请求" id='btnAjax'>
+</body>
+</html>
+<script type="text/javascript">
+	// 获取按钮
+	// document.querySelector('#btnAjax').click(function(){});
+	document.querySelector('#btnAjax').onclick = function () {
+		// ajax的使用 主要分为 5大步骤
+
+		//  1创建 异步对象
+		var ajaxObj = new XMLHttpRequest();
+
+		// 2设置请求的url 以及请求的方法
+		ajaxObj.open('get','02.ajax_normal_user.php');
+
+		// 3发送请求 发送请求
+		ajaxObj.send();
+
+		// 4注册回调事件(函数) 注册,设置的时候 不会被触发,只有在满足某些条件的时候才会被触发,类似的有点击事件,onload事件
+		// 状态改变事件
+		ajaxObj.onreadystatechange = function () {
+			// 5接收服务端返回的数据 并且使用(弹框,修改页面显示等等)
+			// 响应的数据
+			// console.log(ajaxObj.readyState);
+
+			/*
+				判断1:数据 完美的回来了
+				判断2:当前请求的页面 是存在的 交互成功
+			*/
+			if (ajaxObj.readyState ==4&&ajaxObj.status==200) {
+				console.log(ajaxObj.responseText);
+			}
+			
+		}
+
+		
+	}
+
+
+</script>
