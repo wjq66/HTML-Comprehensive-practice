@@ -4,22 +4,6 @@
 		<meta charset="UTF-8">
 		<title></title>
 	</head>
-	<style>
-		table{
-			border-collapse: collapse;
-			width: 100px;
-			margin: 100px auto;
-		}
-		table ,tr, td{
-			border: 1px solid #fcf;
-		}
-		table tr{
-			height: 50px;
-		}
-		table tr td{
-			padding: 0px 30px;
-		}
-	</style>
 	<body>
 		<button id="btn">123</button>
 	</body>
@@ -28,23 +12,29 @@
 	<script type="text/javascript">
 		$("#btn").click(function(){
 			$.ajax({
-					url:"json/day3_3_table.json",
+					url:"https://api.douban.com/v2/book/1220562",
 					dataType:"json",
 					type:"get",
 					success:function(data){
 						var txt = "";
 						var table1 = document.createElement("table");
 						$(table1).insertAfter($("#btn"));
-						for(var da in data){
+						/*for(var da in data){
 							txt = txt+
 								"<tr>"+
 									"<td>"+data[da].id+ "</td>"+
 									"<td>"+data[da].name+ "</td>"+
 									"<td>"+data[da].age+ "</td>"+
 								"</tr>"
-						}
+						}*/
+						txt = "<p>"+data.id+"</p>"
 						console.log(txt);
+						alert(txt);
+//						$("table").innerHTML = txt;
 						table1.innerHTML = txt;
+						/*$.each(data, function(index,obj) {
+							alert(obj.firstName);
+						});*/
 					},error:function(e){
 						alert(0);
 					}
